@@ -50,7 +50,7 @@ provider:
 
 # you can add packaging information here
 package:
-  artifact: build/distributions/hello.zip
+  artifact: build/distributions/${self:service}.zip
 
 functions:
   hello:
