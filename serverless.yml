@@ -59,6 +59,15 @@ package:
 functions:
   createProduct:
     handler: com.serverless.CreateProductHandler
+    events:
+      - http:
+          method: post
+          path: /products
+          integration: lambda
+          request:
+            template:
+              application/json: '$input.body'
+
   hello:
     handler: com.serverless.Handler
 #    The following are a few example events you can configure
