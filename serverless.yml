@@ -57,6 +57,8 @@ package:
   artifact: build/distributions/${self:service}.zip
 
 functions:
+  createProduct:
+    handler: com.serverless.CreateProductHandler
   hello:
     handler: com.serverless.Handler
 #    The following are a few example events you can configure
