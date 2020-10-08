@@ -3,6 +3,7 @@
 Features:
 - Create a product
 - Get a product by key
+- List products
 
 ## Prerequisites
 
@@ -45,6 +46,12 @@ Get a product with given id and name by calling the `getProduct` Lambda function
 serverless invoke --function getProduct --data '{"id": <product_id>, "name": "product1"}' | jq
 ```
 
+Get all products by calling the `getProduct` Lambda function and pipe the response to `jq`:
+
+```shell
+serverless invoke --function listProducts | jq
+```
+
 ## Calling the API
 
 Create a new product via calling the `/products` API Gateway endpoint:  
@@ -60,6 +67,12 @@ Get a product with given id and name by calling the `/products/{id}` API Gateway
 
 ```shell
 curl -X GET https://92z8tml2td.execute-api.eu-north-1.amazonaws.com/dev/products/{id}?name={name} | jq
+```
+
+List products by calling the `/products` API Gateway endpoint:
+
+```shell
+curl -X GET https://92z8tml2td.execute-api.eu-north-1.amazonaws.com/dev/products | jq
 ```
 
 ## View the CloudWatch logs

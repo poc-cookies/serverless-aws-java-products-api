@@ -44,6 +44,13 @@ functions:
                   "id": "$input.params('id')",
                   "name": "$input.params('name')"
                 }
+  listProducts:
+    handler: com.serverless.feature.product.list.ListProductsHandler
+    events:
+      - http:
+          method: get
+          path: /products
+          integration: lambda
 
 resources:
   Resources:
