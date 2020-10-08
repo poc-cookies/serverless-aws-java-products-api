@@ -4,6 +4,7 @@ Features:
 - Create a product
 - Get a product by key
 - List products
+- Delete a product by key
 
 ## Prerequisites
 
@@ -52,6 +53,12 @@ Get all products by calling the `getProduct` Lambda function and pipe the respon
 serverless invoke --function listProducts | jq
 ```
 
+Delete a product with given id and name by calling the `deleteProduct` Lambda function and pipe the response to `jq`:
+
+```shell
+serverless invoke --function deleteProduct --data '{"id": <product_id>, "name": "product1"}' | jq
+```
+
 ## Calling the API
 
 Create a new product via calling the `/products` API Gateway endpoint:  
@@ -73,6 +80,12 @@ List products by calling the `/products` API Gateway endpoint:
 
 ```shell
 curl -X GET https://92z8tml2td.execute-api.eu-north-1.amazonaws.com/dev/products | jq
+```
+
+Delete a product with given id and name by calling the `/products/{id}` API Gateway endpoint:
+
+```shell
+curl -X DELETE https://92z8tml2td.execute-api.eu-north-1.amazonaws.com/dev/products/{id}?name={name} | jq
 ```
 
 ## View the CloudWatch logs

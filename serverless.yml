@@ -51,6 +51,20 @@ functions:
           method: get
           path: /products
           integration: lambda
+  deleteProduct:
+    handler: com.serverless.feature.product.delete.DeleteProductHandler
+    events:
+      - http:
+          method: delete
+          path: /products/{id}
+          integration: lambda
+          request:
+            template:
+              application/json: >
+                {
+                  "id": "$input.params('id')",
+                  "name": "$input.params('name')"
+                }
 
 resources:
   Resources:
