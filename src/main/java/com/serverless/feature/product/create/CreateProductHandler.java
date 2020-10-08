@@ -1,7 +1,8 @@
-package com.serverless;
+package com.serverless.feature.product.create;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
+import com.serverless.repository.entity.Product;
 import lombok.extern.log4j.Log4j;
 
 import java.util.UUID;

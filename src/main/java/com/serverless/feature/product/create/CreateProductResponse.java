@@ -1,4 +1,4 @@
-package com.serverless;
+package com.serverless.feature.product.create;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

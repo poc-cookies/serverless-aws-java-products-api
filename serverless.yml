@@ -21,7 +21,7 @@ package:
 
 functions:
   createProduct:
-    handler: com.serverless.CreateProductHandler
+    handler: com.serverless.feature.product.create.CreateProductHandler
     events:
       - http:
           method: post

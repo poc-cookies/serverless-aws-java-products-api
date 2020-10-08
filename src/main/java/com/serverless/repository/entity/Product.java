@@ -1,4 +1,4 @@
-package com.serverless;
+package com.serverless.repository.entity;
 
 import lombok.Builder;
 import lombok.Getter;
