@@ -2,6 +2,7 @@
 
 Features:
 - Create a product
+- Get a product by key
 
 ## Prerequisites
 
@@ -38,6 +39,12 @@ Create a new product by calling the `createProduct` Lambda function and output t
 serverless invoke --function createProduct --data '{"name": "product2", "price": 9.2}' --log
 ```
 
+Get a product with given id and name by calling the `getProduct` Lambda function and pipe the response to `jq`:
+
+```shell
+serverless invoke --function getProduct --data '{"id": <product_id>, "name": "product1"}' | jq
+```
+
 ## Calling the API
 
 Create a new product via calling the `/products` API Gateway endpoint:  
@@ -47,6 +54,18 @@ curl -X POST https://92z8tml2td.execute-api.eu-north-1.amazonaws.com/dev/product
   -H "Content-Type: application/json" \
   -d '{"name": "product11", "price": 9.11}' \
   | jq
+```
+
+Get a product with given id and name by calling the `/products/{id}` API Gateway endpoint:
+
+```shell
+curl -X GET https://92z8tml2td.execute-api.eu-north-1.amazonaws.com/dev/products/{id}?name={name} | jq
+```
+
+## View the CloudWatch logs
+
+```shell
+serverless logs --function <function_name>
 ```
 
 ## Remove the stack

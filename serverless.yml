@@ -30,6 +30,20 @@ functions:
           request:
             template:
               application/json: '$input.body'
+  getProduct:
+    handler: com.serverless.feature.product.get.GetProductHandler
+    events:
+      - http:
+          method: get
+          path: /products/{id}
+          integration: lambda
+          request:
+            template:
+              application/json: >
+                {
+                  "id": "$input.params('id')",
+                  "name": "$input.params('name')"
+                }
 
 resources:
   Resources:
