@@ -20,20 +20,29 @@ repositories {
 def versionYaml = new Yaml().load(new File("version.yml").newInputStream())
 version = versionYaml.v
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+ext {
+    awsLambdaJavaCoreVersion = '1.2.1'
+    awsLambdaJavaLog4jVersion = '1.0.1'
+    awssdkBomVersion = '2.15.2'
+    lombokVersion = '1.18.12'
+}
 
 dependencies {
     api(
-            'com.amazonaws:aws-lambda-java-core:1.2.1',
-            'com.amazonaws:aws-lambda-java-log4j:1.0.1',
+            "com.amazonaws:aws-lambda-java-core:$awsLambdaJavaCoreVersion",
+            "com.amazonaws:aws-lambda-java-log4j:$awsLambdaJavaLog4jVersion",
     )
 
     implementation(
-            platform('software.amazon.awssdk:bom:2.15.2'),
-            'software.amazon.awssdk:dynamodb',
-            'software.amazon.awssdk:dynamodb-enhanced',
-            'org.projectlombok:lombok:1.18.12',
+            platform("software.amazon.awssdk:bom:$awssdkBomVersion"),
+            "software.amazon.awssdk:dynamodb",
+            "software.amazon.awssdk:dynamodb-enhanced",
+            "org.projectlombok:lombok:$lombokVersion",
     )
 
     annotationProcessor 'org.projectlombok:lombok:1.18.12'
