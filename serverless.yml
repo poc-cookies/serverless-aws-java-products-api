@@ -2,6 +2,9 @@ service: products-api
 
 frameworkVersion: '2'
 
+custom:
+  version: ${file(version.yml)}
+
 provider:
   name: aws
   runtime: java8
@@ -17,7 +20,7 @@ provider:
     DDB_AWS_REGION: eu-north-1
 
 package:
-  artifact: build/distributions/${self:service}.zip
+  artifact: build/distributions/${self:service}-${self:custom.version.v}.zip
 
 functions:
   createProduct:
