@@ -9,15 +9,14 @@ provider:
   name: aws
   runtime: java8
   region: eu-north-1
+  environment:
+    DDB_AWS_REGION: eu-north-1
 
   iamRoleStatements:
     - Effect: "Allow"
       Action:
         - "dynamodb:*"
-      Resource: "arn:aws:dynamodb:${self:provider.region}:*:table/Products" # Set AWS Account in lieu of '*' if needed
-
-  environment:
-    DDB_AWS_REGION: eu-north-1
+      Resource: "arn:aws:dynamodb:${self:provider.environment.DDB_AWS_REGION}:*:table/Products" # Set AWS Account in lieu of '*' if needed
 
 package:
   artifact: build/distributions/${self:service}-${self:custom.version.v}.zip
