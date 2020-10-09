@@ -18,6 +18,7 @@ repositories {
 }
 
 def versionYaml = new Yaml().load(new File("version.yml").newInputStream())
+group = 'com.serverless'
 version = versionYaml.v
 
 java {
