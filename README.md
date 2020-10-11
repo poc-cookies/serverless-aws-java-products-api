@@ -47,7 +47,7 @@ Get a product with given id and name by calling the `getProduct` Lambda function
 serverless invoke --function getProduct --data '{"id": <product_id>, "name": "product1"}' | jq
 ```
 
-Get all products by calling the `getProduct` Lambda function and pipe the response to `jq`:
+Get all products by calling the `listProducts` Lambda function and pipe the response to `jq`:
 
 ```shell
 serverless invoke --function listProducts | jq
