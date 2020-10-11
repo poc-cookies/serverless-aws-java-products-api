@@ -63,8 +63,8 @@ serverless invoke --function deleteProduct --data '{"id": <product_id>, "name": 
 
 Create a new product via calling the `/products` API Gateway endpoint:  
 
-```
-curl -X POST https://92z8tml2td.execute-api.eu-north-1.amazonaws.com/dev/products \
+```shell
+curl -X POST <endpoint_base>/dev/products \
   -H "Content-Type: application/json" \
   -d '{"name": "product11", "price": 9.11}' \
   | jq
@@ -73,19 +73,19 @@ curl -X POST https://92z8tml2td.execute-api.eu-north-1.amazonaws.com/dev/product
 Get a product with given id and name by calling the `/products/{id}` API Gateway endpoint:
 
 ```shell
-curl -X GET https://92z8tml2td.execute-api.eu-north-1.amazonaws.com/dev/products/{id}?name={name} | jq
+curl -X GET <endpoint_base>/dev/products/{id}?name={name} | jq
 ```
 
 List products by calling the `/products` API Gateway endpoint:
 
 ```shell
-curl -X GET https://92z8tml2td.execute-api.eu-north-1.amazonaws.com/dev/products | jq
+curl -X GET <endpoint_base>/dev/products | jq
 ```
 
 Delete a product with given id and name by calling the `/products/{id}` API Gateway endpoint:
 
 ```shell
-curl -X DELETE https://92z8tml2td.execute-api.eu-north-1.amazonaws.com/dev/products/{id}?name={name} | jq
+curl -X DELETE <endpoint_base>/dev/products/{id}?name={name} | jq
 ```
 
 ## View the CloudWatch logs
