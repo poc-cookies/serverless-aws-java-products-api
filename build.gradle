@@ -46,7 +46,7 @@ dependencies {
             "org.projectlombok:lombok:$lombokVersion",
     )
 
-    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
 }
 
 task buildZip(type: Zip) {
